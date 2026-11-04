@@ -1,0 +1,16 @@
+version: 2
+
+sources:
+  - name: crm
+    description: "Bruto da API do CRM, gravado pelo seu extrator. Ajuste schema e identifier se usar outro nome."
+    schema: raw
+    tables:
+      - name: deals
+        identifier: crm_deals
+
+  - name: erp
+    description: "Extração de matrículas do ERP acadêmico."
+    tables:
+      - name: matriculas
+        meta:
+          external_location: "read_csv_auto('data/erp/matriculas.csv', all_varchar = true)"

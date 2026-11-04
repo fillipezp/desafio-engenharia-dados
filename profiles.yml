@@ -1,0 +1,7 @@
+funil_vendas:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: funil.duckdb
+      threads: 4

@@ -1,0 +1,77 @@
+
+version: 2
+
+models:
+  - name: stg_crm_deals
+    description: "Histórico do CRM tratado e padronizado."
+    columns:
+      - name: event_hash
+        data_tests:
+          - not_null
+          - unique
+
+      - name: deal_id
+        data_tests:
+          - not_null
+
+      - name: atualizado_em
+        data_tests:
+          - not_null
+
+      - name: etapa
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values:
+                  - lead
+                  - qualificado
+                  - proposta
+                  - negociação
+                  - ganho
+                  - perdido
+
+  - name: stg_erp_matriculas
+    description: "Matrículas e pagamentos tratados do ERP."
+    columns:
+      - name: matricula_id
+        data_tests:
+          - not_null
+          - unique
+
+      - name: status_pagamento
+        data_tests:
+          - accepted_values:
+              arguments:
+                values:
+                  - pago
+                  - pendente
+                  - cancelado
+
+      - name: data_matricula
+        data_tests:
+          - not_null
+
+  - name: int_deals_atual
+    description: "Versão mais recente de cada oportunidade."
+    columns:
+      - name: deal_id
+        data_tests:
+          - not_null
+          - unique
+
+  - name: mart_funil
+    description: "Quantidade e valor de oportunidades por etapa."
+    columns:
+      - name: etapa
+        data_tests:
+          - not_null
+          - unique
+
+  - name: mart_receita_diaria
+    description: "Receita confirmada agrupada por data da matrícula."
+    columns:
+      - name: data
+        data_tests:
+          - not_null
+          - unique

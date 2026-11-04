@@ -1,0 +1,22 @@
+# Ambiente virtual Python
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# DuckDB
+*.duckdb
+*.duckdb.wal
+
+# dbt
+target/
+logs/
+dbt_packages/
+
+# Credenciais e configurações locais
+.env
+.env.*
+
+# Arquivos locais de configuração e testes
+.user.yml
+seu_banco.db
